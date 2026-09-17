@@ -27,7 +27,7 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
-
+const API_URL=import.meta.env.VITE_CHATBOT_API_URL
 // --- Types & Constants matching API ---
 
 const ACTIVITY_LEVELS = [
@@ -142,7 +142,7 @@ const WorkoutGenerator = () => {
 
     try {
       // 1. Call the API
-      const response = await fetch('http://127.0.0.1:8000/api/model2/recommend', {
+      const response = await fetch(`${API_URL}/api/model2/recommend`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
